@@ -1,0 +1,33 @@
+---
+import { site } from '../data/site';
+---
+
+<section class="border-y border-line bg-carbon">
+	<div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 py-16 lg:flex-row lg:items-center lg:px-10 lg:py-20">
+		<div class="max-w-xl">
+			<p class="kicker kicker-rule mb-6">See What We're Doing</p>
+			<h2 class="font-display text-3xl uppercase leading-tight tracking-tight text-bone lg:text-4xl">
+				Fresh transformations, posted regularly
+			</h2>
+			<p class="mt-5 leading-relaxed text-ash">
+				Before-and-afters, job-site clips and everything in between — follow
+				along on Facebook.
+			</p>
+		</div>
+
+		<a
+			href={site.facebookHref}
+			target="_blank"
+			rel="noopener"
+			class="group flex shrink-0 items-center gap-4 border border-line bg-ink px-8 py-5 transition-colors hover:border-red"
+		>
+			<svg class="h-6 w-6 text-red-bright" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+				<path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z" />
+			</svg>
+			<span>
+				<span class="block font-display text-[0.7rem] uppercase tracking-[0.2em] text-smoke">Follow Us</span>
+				<span class="font-display text-lg uppercase tracking-wide text-bone transition-colors group-hover:text-red-bright">On Facebook</span>
+			</span>
+		</a>
+	</div>
+</section>

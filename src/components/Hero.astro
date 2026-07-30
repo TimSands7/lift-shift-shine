@@ -1,0 +1,68 @@
+---
+import { Image } from 'astro:assets';
+import { site } from '../data/site';
+import heroImg from '../assets/pexels-karlheinz-strohmaier-2153257497-37941666.jpg';
+---
+
+<section id="top" class="relative isolate min-h-screen overflow-hidden bg-ink">
+	<!-- Background photograph -->
+	<Image
+		src={heroImg}
+		alt="A Lift Shift Shine technician power washing a storefront entrance"
+		widths={[768, 1280, 1920]}
+		sizes="100vw"
+		class="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+		loading="eager"
+		fetchpriority="high"
+	/>
+	<!-- Cinematic overlays for legibility -->
+	<div class="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/80 to-ink/50"></div>
+	<div class="absolute inset-0 -z-10 bg-gradient-to-r from-ink/90 to-transparent"></div>
+
+	<div class="mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 pt-32 pb-20 lg:px-10">
+		<p class="kicker kicker-rule mb-7">{site.tagline}</p>
+
+		<h1 class="max-w-4xl font-display text-5xl uppercase leading-[0.95] tracking-tight text-bone sm:text-6xl lg:text-8xl">
+			Cleaning muscle for<br />
+			<span class="text-red">homes &amp; businesses</span>
+		</h1>
+
+		<p class="mt-8 max-w-xl text-lg leading-relaxed text-ash">
+			Family-owned house cleaning, power washing, window cleaning, move in/out and
+			commercial cleaning — done right, across {site.serviceArea}.
+		</p>
+
+		<div class="mt-10 flex flex-col gap-4 sm:flex-row">
+			<a
+				href={site.phoneHref}
+				class="border border-red bg-red px-8 py-4 text-center font-display text-sm font-semibold uppercase tracking-[0.2em] text-bone transition-colors hover:bg-red-bright"
+			>
+				Call {site.phone}
+			</a>
+			<a
+				href="#contact"
+				class="border border-line bg-ink/40 px-8 py-4 text-center font-display text-sm font-semibold uppercase tracking-[0.2em] text-bone backdrop-blur transition-colors hover:border-red hover:text-red-bright"
+			>
+				Get a Free Quote
+			</a>
+		</div>
+
+		<!-- Reassurance line -->
+		<div class="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 font-display text-xs font-medium uppercase tracking-[0.2em] text-smoke">
+			<span class="flex items-center gap-2">
+				<span class="h-1.5 w-1.5 bg-red"></span> Family-Owned &amp; Operated
+			</span>
+			<span class="flex items-center gap-2">
+				<span class="h-1.5 w-1.5 bg-red"></span> Residential &amp; Commercial
+			</span>
+			<span class="flex items-center gap-2">
+				<span class="h-1.5 w-1.5 bg-red"></span> After-Hours Available
+			</span>
+		</div>
+	</div>
+
+	<!-- Scroll hint -->
+	<div class="absolute bottom-6 left-1/2 hidden -translate-x-1/2 lg:block">
+		<span class="font-display text-[0.65rem] uppercase tracking-[0.4em] text-smoke">Scroll</span>
+	</div>
+</section>

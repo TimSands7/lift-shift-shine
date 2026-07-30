@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ *
+ * Lift Shift Shine — brand theme
+ * Modern but tough: near-black base, muscle-red accent, hard edges.
+ * Pulled straight from the client's logo (black / red / white).
+ * Swap these tokens to re-skin the whole site.
+ * ------------------------------------------------------------------ */
+@theme {
+  /* Surfaces — layered near-blacks for depth */
+  --color-ink: #0a0a0a;      /* page base */
+  --color-carbon: #131313;   /* primary panel */
+  --color-steel: #1c1c1e;    /* raised panel */
+  --color-line: #2a2a2d;     /* hairline borders */
+
+  /* Text */
+  --color-bone: #f5f3ef;     /* headings / high-contrast */
+  --color-ash: #b9b9bd;      /* body copy */
+  --color-smoke: #7d7d82;    /* muted / labels */
+
+  /* Accents */
+  --color-red: #d81324;      /* primary brand red */
+  --color-red-bright: #ff2b3c;
+  --color-red-dark: #8f0d1a;
+
+  /* Type */
+  --font-display: "Anton", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Industrial: no rounded corners by default */
+  --radius-none: 0px;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-ash);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Section eyebrow / kicker label */
+.kicker {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: var(--color-red-bright);
+}
+
+/* Thin red rule used beside kickers */
+.kicker-rule::before {
+  content: "";
+  display: inline-block;
+  width: 2.25rem;
+  height: 1px;
+  margin-right: 0.85rem;
+  vertical-align: middle;
+  background: var(--color-red-bright);
+}
+
+::selection {
+  background: var(--color-red);
+  color: var(--color-bone);
+}

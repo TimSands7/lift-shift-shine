@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+import gutter from '../assets/gutter-before-after.png';
+import stove from '../assets/stove-before-after.png';
+import walkway from '../assets/walkway-before-after.png';
+
+const results = [
+	{ img: gutter, title: 'Gutter & Fascia', alt: 'Before and after of a mildew-stained gutter and fascia, restored to clean white' },
+	{ img: stove, title: 'Kitchen Deep Clean', alt: 'Before and after of a grease-covered stovetop and oven door, deep cleaned to a shine' },
+	{ img: walkway, title: 'Commercial Walkway', alt: 'Before and after of a stained storefront walkway, power washed clean' },
+];
+---
+
+<section id="results" class="bg-ink py-24 lg:py-32">
+	<div class="mx-auto max-w-7xl px-6 lg:px-10">
+		<div class="max-w-2xl">
+			<p class="kicker kicker-rule mb-6">Results</p>
+			<h2 class="font-display text-4xl uppercase leading-tight tracking-tight text-bone lg:text-6xl">
+				See the difference
+			</h2>
+			<p class="mt-6 max-w-xl text-lg leading-relaxed text-ash">
+				Real jobs, real before-and-afters — no filters, just work.
+			</p>
+		</div>
+
+		<div class="mt-16 grid gap-px border border-line bg-line md:grid-cols-3">
+			{results.map((result) => (
+				<figure class="bg-carbon">
+					<div class="overflow-hidden">
+						<Image
+							src={result.img}
+							alt={result.alt}
+							widths={[400, 600, 900]}
+							sizes="(min-width: 768px) 33vw, 100vw"
+							class="h-full w-full object-cover"
+						/>
+					</div>
+					<figcaption class="border-t border-line px-6 py-5">
+						<span class="font-display text-sm uppercase tracking-[0.16em] text-bone">{result.title}</span>
+					</figcaption>
+				</figure>
+			))}
+		</div>
+	</div>
+</section>

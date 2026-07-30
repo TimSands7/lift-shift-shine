@@ -1,0 +1,50 @@
+---
+import { Image } from 'astro:assets';
+import teamImg from '../assets/pexels-tima-miroshnichenko-6195122.jpg';
+import { site } from '../data/site';
+
+const values = [
+	'Family-owned and operated, right here in New Jersey',
+	'Professional, consistent crews you can count on',
+	'Supplies and equipment included on every job',
+	'We show up and get it done right — no excuses',
+];
+---
+
+<section id="about" class="bg-ink py-24 lg:py-32">
+	<div class="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-10">
+		<div>
+			<p class="kicker kicker-rule mb-6">About Us</p>
+			<h2 class="font-display text-4xl uppercase leading-tight tracking-tight text-bone lg:text-5xl">
+				Family-owned.<br /> Built to work hard.
+			</h2>
+			<p class="mt-6 max-w-xl text-lg leading-relaxed text-ash">
+				Lift Shift Shine is a family-owned home services and commercial
+				cleaning company serving {site.serviceArea}. We lift the heavy
+				jobs, shift through the details, and leave every space shining —
+				whether it's a kitchen, a storefront or a construction site.
+			</p>
+
+			<ul class="mt-10 space-y-4">
+				{values.map((value) => (
+					<li class="flex items-start gap-4">
+						<span class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center border border-red text-red-bright">
+							<svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M5 12l5 5L19 7" /></svg>
+						</span>
+						<span class="leading-relaxed text-ash">{value}</span>
+					</li>
+				))}
+			</ul>
+		</div>
+
+		<div class="relative aspect-[4/5] overflow-hidden border border-line lg:aspect-square">
+			<Image
+				src={teamImg}
+				alt="The Lift Shift Shine crew, in matching uniforms, on the job with cleaning equipment"
+				widths={[500, 800, 1100]}
+				sizes="(min-width: 1024px) 50vw, 100vw"
+				class="h-full w-full object-cover"
+			/>
+		</div>
+	</div>
+</section>

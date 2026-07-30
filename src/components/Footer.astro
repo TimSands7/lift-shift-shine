@@ -1,0 +1,68 @@
+---
+import { Image } from 'astro:assets';
+import { site, nav } from '../data/site';
+import logo from '../assets/lift-shift-shine-logo.png';
+---
+
+<footer class="border-t border-line bg-carbon">
+	<div class="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+		<div class="flex flex-col gap-12 lg:flex-row lg:justify-between">
+			<!-- Brand -->
+			<div class="max-w-sm">
+				<a href="#top" class="flex items-center gap-4">
+					<Image src={logo} alt={`${site.name} logo`} width={56} height={56} class="h-14 w-14 object-contain" />
+					<span class="font-display text-lg uppercase tracking-[0.04em] text-bone">
+						Lift <span class="text-red">Shift</span> Shine
+					</span>
+				</a>
+				<p class="mt-5 leading-relaxed text-ash">
+					{site.tagline} Family-owned home services and commercial cleaning
+					across {site.serviceArea}.
+				</p>
+				<a
+					href={site.facebookHref}
+					target="_blank"
+					rel="noopener"
+					class="mt-5 inline-flex items-center gap-2 text-ash transition-colors hover:text-red-bright"
+					aria-label="Lift Shift Shine on Facebook"
+				>
+					<svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+						<path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z" />
+					</svg>
+					<span class="text-sm">Facebook</span>
+				</a>
+			</div>
+
+			<!-- Links + contact -->
+			<div class="grid grid-cols-2 gap-12 sm:grid-cols-2">
+				<div>
+					<h3 class="font-display text-xs font-semibold uppercase tracking-[0.24em] text-smoke">Explore</h3>
+					<ul class="mt-5 space-y-3">
+						{nav.map((item) => (
+							<li>
+								<a href={item.href} class="text-ash transition-colors hover:text-red-bright">{item.label}</a>
+							</li>
+						))}
+					</ul>
+				</div>
+				<div>
+					<h3 class="font-display text-xs font-semibold uppercase tracking-[0.24em] text-smoke">Contact</h3>
+					<ul class="mt-5 space-y-3">
+						<li><a href={site.phoneHref} class="text-ash transition-colors hover:text-red-bright">{site.phone}</a></li>
+						<li><a href={`mailto:${site.email}`} class="text-ash transition-colors hover:text-red-bright">{site.email}</a></li>
+						<li class="text-ash">{site.serviceArea}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="mt-14 flex flex-col gap-4 border-t border-line pt-8 sm:flex-row sm:items-center sm:justify-between">
+			<p class="font-display text-xs uppercase tracking-[0.2em] text-smoke">
+				© {new Date().getFullYear()} {site.name}. All rights reserved.
+			</p>
+			<p class="font-display text-xs uppercase tracking-[0.2em] text-smoke">
+				{site.tagline}
+			</p>
+		</div>
+	</div>
+</footer>

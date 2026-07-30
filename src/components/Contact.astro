@@ -1,0 +1,62 @@
+---
+import { site } from '../data/site';
+---
+
+<section id="contact" class="relative overflow-hidden bg-red py-24 lg:py-28">
+	<div class="mx-auto max-w-7xl px-6 lg:px-10">
+		<div class="grid gap-12 lg:grid-cols-5 lg:items-center lg:gap-16">
+			<div class="lg:col-span-3">
+				<p class="font-display text-xs font-semibold uppercase tracking-[0.28em] text-ink/70">
+					Get a Free Quote
+				</p>
+				<h2 class="mt-6 font-display text-4xl uppercase leading-[0.95] tracking-tight text-bone lg:text-6xl">
+					Let's get it shining
+				</h2>
+				<p class="mt-6 max-w-lg text-lg leading-relaxed text-bone/85">
+					Call, text or email for a free quote. Residential or commercial,
+					one-time or recurring — we'll work around your schedule across
+					{site.serviceArea}.
+				</p>
+			</div>
+
+			<div class="border border-ink/20 bg-ink/90 p-9 lg:col-span-2 lg:p-10">
+				<div class="space-y-6">
+					<a href={site.phoneHref} class="group flex items-start gap-4">
+						<span class="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center border border-line text-red-bright">
+							<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"><path d="M5 4h3l2 5-2 1a11 11 0 0 0 5 5l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" /></svg>
+						</span>
+						<span>
+							<span class="block font-display text-[0.7rem] uppercase tracking-[0.2em] text-smoke">Call or Text</span>
+							<span class="font-display text-lg font-medium text-bone transition-colors group-hover:text-red-bright">{site.phone}</span>
+						</span>
+					</a>
+					<a href={`mailto:${site.email}`} class="group flex items-start gap-4">
+						<span class="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center border border-line text-red-bright">
+							<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"><path d="M3 6h18v12H3zM3 7l9 6 9-6" /></svg>
+						</span>
+						<span>
+							<span class="block font-display text-[0.7rem] uppercase tracking-[0.2em] text-smoke">Email</span>
+							<span class="font-display text-lg font-medium text-bone transition-colors group-hover:text-red-bright">{site.email}</span>
+						</span>
+					</a>
+					<div class="flex items-start gap-4">
+						<span class="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center border border-line text-red-bright">
+							<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"><path d="M12 21s7-6.5 7-11a7 7 0 0 0-14 0c0 4.5 7 11 7 11z" /><circle cx="12" cy="10" r="2.4" /></svg>
+						</span>
+						<span>
+							<span class="block font-display text-[0.7rem] uppercase tracking-[0.2em] text-smoke">Service Area</span>
+							<span class="font-display text-lg font-medium text-bone">{site.serviceArea}</span>
+						</span>
+					</div>
+				</div>
+
+				<a
+					href={site.phoneHref}
+					class="mt-9 inline-block w-full border border-red bg-red px-8 py-4 text-center font-display text-sm font-semibold uppercase tracking-[0.2em] text-bone transition-colors hover:bg-red-bright"
+				>
+					Call {site.phone}
+				</a>
+			</div>
+		</div>
+	</div>
+</section>

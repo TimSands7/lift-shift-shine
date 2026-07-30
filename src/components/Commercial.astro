@@ -1,0 +1,142 @@
+---
+const whoWeClean = [
+	'Offices',
+	'Salons & Barbershops',
+	'Gyms & Fitness Studios',
+	'Retail Stores',
+	'Airbnb Turnovers',
+	'Waiting Rooms & Clinics',
+	'Common Areas & More',
+];
+
+const tiers = [
+	{
+		name: 'Small Office',
+		size: 'Under 1,000 sq ft',
+		price: '$80–$120',
+		unit: 'per visit',
+		items: ['Trash Removal', 'Vacuuming & Mopping', 'Bathroom Cleaning', 'Dusting & Wipe Down', 'Surface Sanitizing', 'Breakroom Cleaning'],
+	},
+	{
+		name: 'Medium Office',
+		size: '1,000 – 2,500 sq ft',
+		price: '$140–$250',
+		unit: 'per visit',
+		items: ['Everything in Small Office', 'Plus Additional Disinfection', 'Floor Care', 'Restocking (Paper, Soap, etc.)', 'Detailed Surface Cleaning'],
+		featured: true,
+	},
+	{
+		name: 'Large Office',
+		size: '2,500+ sq ft',
+		price: 'Custom Quote',
+		unit: 'Call or text for a free walkthrough',
+		items: [],
+	},
+];
+
+const otherSpaces = [
+	{ name: 'Salons / Barbershops', price: '$60–$120' },
+	{ name: 'Gyms / Fitness Studios', price: '$150–$350' },
+	{ name: 'Retail Stores / Storefronts', price: '$60–$150' },
+	{ name: 'Airbnb Turnovers', price: '$75–$150' },
+	{ name: 'Waiting Rooms / Clinics', price: '$60–$120' },
+	{ name: 'Common Areas / Buildings', price: 'Custom Quote' },
+];
+
+const payments = ['Visa', 'Mastercard', 'Amex', 'Discover', 'Apple Pay', 'Google Pay', 'Cash App', 'Zelle', 'Cash'];
+---
+
+<section id="commercial" class="border-t border-line bg-carbon py-24 lg:py-32">
+	<div class="mx-auto max-w-7xl px-6 lg:px-10">
+		<div class="max-w-2xl">
+			<p class="kicker kicker-rule mb-6">Commercial</p>
+			<h2 class="font-display text-4xl uppercase leading-tight tracking-tight text-bone lg:text-6xl">
+				A cleaner shop, floor or office
+			</h2>
+			<p class="mt-6 max-w-xl text-lg leading-relaxed text-ash">
+				Professional, consistent cleaning for the spaces your customers and
+				employees walk into every day.
+			</p>
+		</div>
+
+		<!-- Who we clean -->
+		<div class="mt-14 flex flex-wrap gap-3">
+			{whoWeClean.map((item) => (
+				<span class="border border-line px-4 py-2 font-display text-xs uppercase tracking-[0.16em] text-ash">
+					{item}
+				</span>
+			))}
+		</div>
+
+		<!-- Pricing tiers -->
+		<div class="mt-16 grid gap-px border border-line bg-line lg:grid-cols-3">
+			{tiers.map((tier) => (
+				<div class={`flex flex-col p-9 lg:p-10 ${tier.featured ? 'bg-steel' : 'bg-carbon'}`}>
+					{tier.featured && (
+						<span class="mb-4 inline-block w-fit border border-red bg-red px-3 py-1 font-display text-[0.65rem] uppercase tracking-[0.2em] text-bone">
+							Most Booked
+						</span>
+					)}
+					<h3 class="font-display text-2xl uppercase tracking-wide text-bone">{tier.name}</h3>
+					<p class="mt-1 font-display text-[0.7rem] uppercase tracking-[0.2em] text-smoke">{tier.size}</p>
+					<p class="mt-6 font-display text-4xl text-red-bright">{tier.price}</p>
+					<p class="mt-1 text-sm text-ash">{tier.unit}</p>
+					{tier.items.length > 0 && (
+						<ul class="mt-7 space-y-3 border-t border-line pt-7">
+							{tier.items.map((item) => (
+								<li class="flex items-start gap-3 text-sm leading-relaxed text-ash">
+									<span class="mt-1.5 h-1.5 w-1.5 shrink-0 bg-red-bright"></span>
+									{item}
+								</li>
+							))}
+						</ul>
+					)}
+				</div>
+			))}
+		</div>
+		<p class="mt-6 text-sm text-smoke">
+			Prices vary based on frequency, size, condition and specific needs. Final price quoted after assessment.
+		</p>
+
+		<!-- Other popular spaces -->
+		<div class="mt-20 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+			{otherSpaces.map((space) => (
+				<div class="flex items-center justify-between gap-4 bg-carbon px-7 py-5">
+					<span class="text-sm text-ash">{space.name}</span>
+					<span class="font-display text-sm uppercase tracking-wide text-red-bright">{space.price}</span>
+				</div>
+			))}
+		</div>
+		<p class="mt-4 text-sm text-smoke">Size, equipment and restrooms may affect pricing.</p>
+
+		<!-- Recurring plans + eco-friendly -->
+		<div class="mt-20 grid gap-px border border-line bg-line lg:grid-cols-2">
+			<div class="bg-carbon p-9 lg:p-10">
+				<h3 class="font-display text-xl uppercase tracking-wide text-bone">Custom Recurring Plans</h3>
+				<p class="mt-3 text-[0.95rem] leading-relaxed text-ash">
+					Consistent cleaning, better pricing, reliable service. Weekly plans,
+					multi-visit weekly, and after-hours cleaning so your business never
+					skips a beat.
+				</p>
+				<p class="mt-5 font-display text-xs uppercase tracking-[0.18em] text-red-bright">
+					Recurring scheduled cleans = better pricing &amp; priority service
+				</p>
+			</div>
+			<div class="bg-carbon p-9 lg:p-10">
+				<h3 class="font-display text-xl uppercase tracking-wide text-bone">Eco-Friendly Products</h3>
+				<p class="mt-3 text-[0.95rem] leading-relaxed text-ash">
+					Safe for your business, your employees and the planet — without
+					cutting corners on the clean.
+				</p>
+			</div>
+		</div>
+
+		<!-- Payment methods -->
+		<div class="mt-14 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-line pt-8">
+			<span class="mr-2 font-display text-xs uppercase tracking-[0.2em] text-smoke">We Accept</span>
+			{payments.map((method) => (
+				<span class="border border-line px-3 py-1 text-xs text-ash">{method}</span>
+			))}
+		</div>
+	</div>
+</section>

@@ -1,0 +1,22 @@
+---
+const points = [
+	{ label: 'Professional & Consistent' },
+	{ label: 'Attention to Detail' },
+	{ label: 'Supplies & Equipment Included' },
+	{ label: 'Flexible Scheduling' },
+	{ label: 'Eco-Friendly Products' },
+	{ label: 'We Show Up & Get It Done Right' },
+];
+---
+
+<section class="border-y border-line bg-carbon">
+	<div class="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-y divide-line sm:grid-cols-3 lg:grid-cols-6 lg:divide-y-0">
+		{points.map((point) => (
+			<div class="flex items-center justify-center px-4 py-7 text-center lg:py-9">
+				<span class="font-display text-[0.7rem] font-medium uppercase leading-snug tracking-[0.16em] text-ash">
+					{point.label}
+				</span>
+			</div>
+		))}
+	</div>
+</section>
