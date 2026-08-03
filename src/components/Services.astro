@@ -1,5 +1,12 @@
 ---
-// Inline SVG icons keep the page JS-free and crisp at any size.
+import { Image } from 'astro:assets';
+import steamIcon from '../assets/steam-icon-red.png';
+import movingIcon from '../assets/moving-truck-icon-red.png';
+import pressureWasherIcon from '../assets/pressure-washer-icon-red.png';
+import constructionIcon from '../assets/construction-icon-red.png';
+
+// House Cleaning and Window Cleaning use inline SVG (no client icon supplied yet);
+// the rest use the client's uploaded icon set, recolored to match the brand red.
 const services = [
 	{
 		title: 'House Cleaning',
@@ -9,17 +16,17 @@ const services = [
 	{
 		title: 'Deep & Steam Sanitation',
 		copy: 'A heavier clean for appliances, grout and buildup — steam sanitized to actually lift the grime, not just mask it.',
-		icon: 'M6 3v3M10 3v3M14 3v3M5 8h14l-1.5 11.5A2 2 0 0 1 15.5 21h-7a2 2 0 0 1-2-1.5L5 8z',
+		image: steamIcon,
 	},
 	{
 		title: 'Move In / Move Out',
 		copy: 'A full top-to-bottom clean before keys change hands, so the next chapter starts on a spotless floor.',
-		icon: 'M3 13l2-5a2 2 0 0 1 1.9-1.3h10.2A2 2 0 0 1 19 8l2 5m-18 0v5h2v-2h12v2h2v-5m-18 0h18M7 16h.01M17 16h.01',
+		image: movingIcon,
 	},
 	{
 		title: 'Power Washing',
 		copy: 'Driveways, siding, patios and walkways — blasted back to like-new without damaging the surface underneath.',
-		icon: 'M4 13h9a4 4 0 1 0-3-6.6M4 13l3 7M4 13l-1 7M13 20l3-7',
+		image: pressureWasherIcon,
 	},
 	{
 		title: 'Window Cleaning',
@@ -29,7 +36,7 @@ const services = [
 	{
 		title: 'Post-Construction Cleanup',
 		copy: 'Dust, debris and residue cleared from every surface so a freshly built or renovated space is actually move-in ready.',
-		icon: 'M14 3l7 7-9 9-7-7zM7 12l-4 4 5 5 4-4M14.5 5.5l4 4',
+		image: constructionIcon,
 	},
 ];
 ---
@@ -51,9 +58,13 @@ const services = [
 			{services.map((service) => (
 				<div class="group bg-carbon p-9 transition-colors duration-300 hover:bg-steel">
 					<span class="flex h-12 w-12 items-center justify-center border border-line text-red-bright transition-colors group-hover:border-red">
-						<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" stroke-linejoin="miter">
-							<path d={service.icon} />
-						</svg>
+						{service.image ? (
+							<Image src={service.image} alt="" class="h-7 w-7 object-contain" />
+						) : (
+							<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" stroke-linejoin="miter">
+								<path d={service.icon} />
+							</svg>
+						)}
 					</span>
 					<h3 class="mt-7 font-display text-xl uppercase tracking-wide text-bone">
 						{service.title}
