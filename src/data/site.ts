@@ -8,6 +8,7 @@ export const site = {
 	email: 'info@liftshiftshine.com',
 	serviceArea: 'North & Central New Jersey',
 	facebookHref: 'https://www.facebook.com/profile.php?id=61590166208624',
+	instagramHref: 'https://www.instagram.com/lift.shift.shine.llc/',
 };
 
 export const nav = [
